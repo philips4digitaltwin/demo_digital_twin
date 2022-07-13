@@ -58,7 +58,7 @@ public class DXREventReceiver {
         // initialize your monitor here, instance of someService is already injected by this time.
 
         System.out.println("Inside init");
-         test();
+      //   test();
      //   consumeEventsByConsumerGroup();
         consumeEventsByConsumerGroup();
     }
