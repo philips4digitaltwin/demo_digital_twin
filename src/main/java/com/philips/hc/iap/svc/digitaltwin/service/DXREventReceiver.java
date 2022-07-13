@@ -108,6 +108,7 @@ public class DXREventReceiver {
 
         System.out.println("Inside init");
         // test();
-        consumeEventsByConsumerGroup();
+     //   consumeEventsByConsumerGroup();
+     //   consumeEventsByConsumerGroup();
     }
     }
