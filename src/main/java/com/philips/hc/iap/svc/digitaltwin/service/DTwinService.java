@@ -12,4 +12,6 @@ public interface DTwinService {
     public DtwinMagnet saveDtwinMagnet(DtwinMagnet dTwin);
 
     public DtwinLCC saveDtwinLCC(DtwinLCC dTwin);
+
+    public DTwinDetectorCalibration saveDTwinDetectorCalibration(DTwinDetectorCalibration dTwinDetectorCalibration);
 }

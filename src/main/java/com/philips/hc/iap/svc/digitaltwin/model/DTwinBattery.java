@@ -11,7 +11,7 @@ public class DTwinBattery {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int dTwinInstanceBatteryID;
     @Column(name="dtwin_instance_id")
-    private String dTwinDetectorID;
+    private String dtwin_instance_id;
     @ManyToOne
     @JoinColumn(name="dtwin_id" , nullable = false)
     private DTwin dTwin;
@@ -26,8 +26,10 @@ public class DTwinBattery {
     @Column(name="numberofchargingcycles")
     private int numberOfChargingCycles;
 
-    public DTwinBattery(String dTwinDetectorID, DTwin dTwin, String batterySerialNumber, Timestamp remainingLifetime, int remainingLifetimeDays, boolean isChargingCyclesExceeded, int numberOfChargingCycles) {
-        this.dTwinDetectorID = dTwinDetectorID;
+
+    public DTwinBattery(int dTwinInstanceBatteryID, String dtwin_instance_id, DTwin dTwin, String batterySerialNumber, Timestamp remainingLifetime, int remainingLifetimeDays, boolean isChargingCyclesExceeded, int numberOfChargingCycles) {
+        this.dTwinInstanceBatteryID = dTwinInstanceBatteryID;
+        this.dtwin_instance_id = dtwin_instance_id;
         this.dTwin = dTwin;
         this.batterySerialNumber = batterySerialNumber;
         this.remainingLifetime = remainingLifetime;
@@ -36,13 +38,23 @@ public class DTwinBattery {
         this.numberOfChargingCycles = numberOfChargingCycles;
     }
 
-    public String getdTwinDetectorID() {
-        return dTwinDetectorID;
+
+    public int getdTwinInstanceBatteryID() {
+        return dTwinInstanceBatteryID;
     }
 
-    public void setdTwinDetectorID(String dTwinDetectorID) {
-        this.dTwinDetectorID = dTwinDetectorID;
+    public void setdTwinInstanceBatteryID(int dTwinInstanceBatteryID) {
+        this.dTwinInstanceBatteryID = dTwinInstanceBatteryID;
     }
+
+    public String getDtwin_instance_id() {
+        return dtwin_instance_id;
+    }
+
+    public void setDtwin_instance_id(String dtwin_instance_id) {
+        this.dtwin_instance_id = dtwin_instance_id;
+    }
+
 
     public DTwin getdTwin() {
         return dTwin;

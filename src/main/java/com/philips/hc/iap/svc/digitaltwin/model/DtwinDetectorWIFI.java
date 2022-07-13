@@ -23,7 +23,11 @@ public class DtwinDetectorWIFI {
     @Column(name="rawlinkquality")
     private int rawLinkQuality;
 
-    public DtwinDetectorWIFI(int dTwinInstanceWIFIID, DTwinDetector dTwinDetector, int linkQuality, int signalPower, int dataRate, int noisePower, int rawLinkQuality) {
+    @ManyToOne
+    @JoinColumn(name="dtwin_id" , nullable = false)
+    private DTwin dTwin;
+
+    public DtwinDetectorWIFI(int dTwinInstanceWIFIID, DTwinDetector dTwinDetector, int linkQuality, int signalPower, int dataRate, int noisePower, int rawLinkQuality, DTwin dTwin) {
         this.dTwinInstanceWIFIID = dTwinInstanceWIFIID;
         this.dTwinDetector = dTwinDetector;
         this.linkQuality = linkQuality;
@@ -31,6 +35,7 @@ public class DtwinDetectorWIFI {
         this.dataRate = dataRate;
         this.noisePower = noisePower;
         this.rawLinkQuality = rawLinkQuality;
+        this.dTwin = dTwin;
     }
 
     public int getdTwinInstanceWIFIID() {
@@ -87,5 +92,13 @@ public class DtwinDetectorWIFI {
 
     public void setRawLinkQuality(int rawLinkQuality) {
         this.rawLinkQuality = rawLinkQuality;
+    }
+
+    public DTwin getdTwin() {
+        return dTwin;
+    }
+
+    public void setdTwin(DTwin dTwin) {
+        this.dTwin = dTwin;
     }
 }

@@ -24,14 +24,25 @@ public class DTwinServiceImpl implements DTwinService{
     @Autowired
     private DTwinDetectorRepository dTwinDetectorRepository;
 
+    @Autowired
+    private DTwinDetectorCalibrationRepository dTwinDetectorCalibrationRepository;
+
+    @Autowired
+    private DTwinBatteryRepository dTwinBatteryRepository;
+
+
+
     @Override
     public DTwin saveDTwin(DTwin dTwin) {
         return null;
     }
 
     @Override
-    public DTwinBattery saveDTwinBattery(DTwinBattery dTwin) {
-        return null;
+    public DTwinBattery saveDTwinBattery(DTwinBattery dTwinBattery) {
+        DTwin twin = dTwinRepository.getDTwinByInstanceType(DTwinConstant.DXR_INSTANCE_BATTERY);
+        dTwinBattery.setdTwin(twin);
+        dTwinBatteryRepository.save(dTwinBattery);
+        return dTwinBattery;
     }
 
     @Override
@@ -45,8 +56,11 @@ public class DTwinServiceImpl implements DTwinService{
     }
 
     @Override
-    public DtwinDetectorWIFI saveDtwinDetectorWIFI(DtwinDetectorWIFI dTwin) {
-        return null;
+    public DtwinDetectorWIFI saveDtwinDetectorWIFI(DtwinDetectorWIFI dtwinDetectorWIFI) {
+        DTwin twin = dTwinRepository.getDTwinByInstanceType(DTwinConstant.DXR_INSTANCE_DETECTOR_WIFI);
+        dtwinDetectorWIFI.setdTwin(twin);
+        dtwinDetectorWIFIRepository.save(dtwinDetectorWIFI);
+        return dtwinDetectorWIFI;
     }
 
 
@@ -58,6 +72,14 @@ public class DTwinServiceImpl implements DTwinService{
         dtwinLCC.setdTwin(twin);
         dtwinLCCRepository.save(dtwinLCC);
         return dtwinLCC;
+    }
+
+    @Override
+    public DTwinDetectorCalibration saveDTwinDetectorCalibration(DTwinDetectorCalibration dTwinDetectorCalibration) {
+        DTwin twin = dTwinRepository.getDTwinByInstanceType(DTwinConstant.DXR_INSTANCE_DETECTOR_CALIBRATION);
+        dTwinDetectorCalibration.setdTwin(twin);
+        dTwinDetectorCalibrationRepository.save(dTwinDetectorCalibration);
+        return dTwinDetectorCalibration;
     }
 
     @Override

@@ -41,12 +41,18 @@ public class DtwinMagnet {
     @JoinColumn(name="dtwin_id" , nullable = false)
     private DTwin dTwin;
 
+    private String Equipment_Number;
+
+    private String Software_Version;
+
+    private String System_Type;
+
 
     public DtwinMagnet() {
 
     }
 
-    public DtwinMagnet(int dTwinInstanceMagnetID, String dtwin_instance_id, double magnet_pressure, double magnet_bathheaterlow, double magnet_helium_level_value, double magnet_quench, String magnet_Type, String main_System_Type, String magnet_Serial_Number, String magnet_MMU_Type, Timestamp eventDate, String instanceType, String SRN, DTwin dTwin) {
+    public DtwinMagnet(int dTwinInstanceMagnetID, String dtwin_instance_id, double magnet_pressure, double magnet_bathheaterlow, double magnet_helium_level_value, double magnet_quench, String magnet_Type, String main_System_Type, String magnet_Serial_Number, String magnet_MMU_Type, Timestamp eventDate, String instanceType, String SRN, DTwin dTwin, String equipment_Number, String software_Version, String system_Type) {
         this.dTwinInstanceMagnetID = dTwinInstanceMagnetID;
         this.dtwin_instance_id = dtwin_instance_id;
         this.magnet_pressure = magnet_pressure;
@@ -61,6 +67,34 @@ public class DtwinMagnet {
         InstanceType = instanceType;
         this.SRN = SRN;
         this.dTwin = dTwin;
+        Equipment_Number = equipment_Number;
+        Software_Version = software_Version;
+        System_Type = system_Type;
+    }
+
+
+    public String getEquipment_Number() {
+        return Equipment_Number;
+    }
+
+    public void setEquipment_Number(String equipment_Number) {
+        Equipment_Number = equipment_Number;
+    }
+
+    public String getSoftware_Version() {
+        return Software_Version;
+    }
+
+    public void setSoftware_Version(String software_Version) {
+        Software_Version = software_Version;
+    }
+
+    public String getSystem_Type() {
+        return System_Type;
+    }
+
+    public void setSystem_Type(String system_Type) {
+        System_Type = system_Type;
     }
 
     public int getdTwinInstanceMagnetID() {

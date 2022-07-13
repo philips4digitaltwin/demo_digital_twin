@@ -1,6 +1,7 @@
 package com.philips.hc.iap.svc.digitaltwin.service;
 
 import com.philips.hc.iap.svc.digitaltwin.model.DTwinDetector;
+import com.philips.hc.iap.svc.digitaltwin.model.DTwinDetectorCalibration;
 import com.philips.hc.iap.svc.digitaltwin.model.DtwinLCC;
 import com.philips.hc.iap.svc.digitaltwin.model.DtwinMagnet;
 import com.philips.hc.iap.svc.digitaltwin.utilities.DTwinConstant;
@@ -28,27 +29,43 @@ public class EventParser {
 
 
  //   System.out.println("Instance type : "+newJS.getString(DTwinConstant.INSTANCE_TYPE));
-     switch (newJS.getString(DTwinConstant.INSTANCE_TYPE)){
-       case DTwinConstant.MR_INSTANCE_LCC:
-         DtwinLCC dtwinLCC = new DtwinLCC();
-         dtwinLCC = json2Java(newJS.toString(), DtwinLCC.class);
-         dTwinService.saveDtwinLCC(dtwinLCC);
-         break;
-       case DTwinConstant.MR_INSTANCE_MAGNET:
-         DtwinMagnet dtwinMagnet = new DtwinMagnet();
-         dtwinMagnet = json2Java(newJS.toString(), DtwinMagnet.class);
-         dTwinService.saveDtwinMagnet(dtwinMagnet);
-         break;
-       case DTwinConstant.DXR_INSTANCE_DETECTOR:
-         DTwinDetector dTwinDetector = new DTwinDetector();
-         dTwinDetector = json2Java(newJS.toString(), DTwinDetector.class);
-         dTwinService.saveDTwinDetector(dTwinDetector);
-         break;
 
-       default:
-         break;
+      try{
+        switch (newJS.getString(DTwinConstant.INSTANCE_TYPE)) {
+          case DTwinConstant.MR_INSTANCE_LCC:
+            DtwinLCC dtwinLCC = new DtwinLCC();
+            dtwinLCC = json2Java(newJS.toString(), DtwinLCC.class);
+            dTwinService.saveDtwinLCC(dtwinLCC);
+            break;
+          case DTwinConstant.MR_INSTANCE_MAGNET:
+            DtwinMagnet dtwinMagnet = new DtwinMagnet();
+            dtwinMagnet = json2Java(newJS.toString(), DtwinMagnet.class);
+            dTwinService.saveDtwinMagnet(dtwinMagnet);
+            break;
+          case DTwinConstant.DXR_INSTANCE_DETECTOR:
+            DTwinDetector dTwinDetector = new DTwinDetector();
+            dTwinDetector = json2Java(newJS.toString(), DTwinDetector.class);
+            dTwinService.saveDTwinDetector(dTwinDetector);
+            break;
+          case DTwinConstant.DXR_INSTANCE_DETECTOR_CALIBRATION:
+            DTwinDetectorCalibration dTwinDetectorCalibration = new DTwinDetectorCalibration();
+            dTwinDetectorCalibration = json2Java(newJS.toString(), DTwinDetectorCalibration.class);
+            dTwinService.saveDTwinDetectorCalibration(dTwinDetectorCalibration);
+            break;
 
-  }
+          default:
+            break;
+        }
+
+      }catch (Exception e){
+          e.printStackTrace();
+      }
+
+
+
+
+
+
 
 }
 
