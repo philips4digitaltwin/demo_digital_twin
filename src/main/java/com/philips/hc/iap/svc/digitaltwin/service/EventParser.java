@@ -1,18 +1,14 @@
 package com.philips.hc.iap.svc.digitaltwin.service;
 
-import com.philips.hc.iap.svc.digitaltwin.model.DTwinDetector;
-import com.philips.hc.iap.svc.digitaltwin.model.DTwinDetectorCalibration;
 import com.philips.hc.iap.svc.digitaltwin.model.DtwinLCC;
 import com.philips.hc.iap.svc.digitaltwin.model.DtwinMagnet;
 import com.philips.hc.iap.svc.digitaltwin.utilities.DTwinConstant;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Iterator;
 import java.util.Locale;
 
 @Service
@@ -42,18 +38,7 @@ public class EventParser {
             dtwinMagnet = json2Java(newJS.toString(), DtwinMagnet.class);
             dTwinService.saveDtwinMagnet(dtwinMagnet);
             break;
-          case DTwinConstant.DXR_INSTANCE_DETECTOR:
-            DTwinDetector dTwinDetector = new DTwinDetector();
-            dTwinDetector = json2Java(newJS.toString(), DTwinDetector.class);
-            dTwinService.saveDTwinDetector(dTwinDetector);
-            break;
-          case DTwinConstant.DXR_INSTANCE_DETECTOR_CALIBRATION:
-            DTwinDetectorCalibration dTwinDetectorCalibration = new DTwinDetectorCalibration();
-            dTwinDetectorCalibration = json2Java(newJS.toString(), DTwinDetectorCalibration.class);
-            dTwinService.saveDTwinDetectorCalibration(dTwinDetectorCalibration);
-            break;
-
-          default:
+        default:
             break;
         }
 

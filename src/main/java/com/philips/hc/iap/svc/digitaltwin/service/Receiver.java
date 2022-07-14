@@ -106,72 +106,27 @@ public class Receiver {
    //     EventParser evParser = new EventParser();
 
         evParser.parseEvent("{\n" +
-                "\n" +
-                "  \"dtwin_id\": \"dtmi:com:philips:pd:mr:lcc;5\",\n" +
-                "\n" +
-                "  \"LCC_GradAmpFilterPress\": 0.1,\n" +
-                "\n" +
-                "  \"LCC_GradAmpPress\": 5.6,\n" +
-                "\n" +
-                "  \"LCC_GradCoilFilterPress\": 0.1,\n" +
-                "\n" +
-                "  \"LCC_GradCoilPress\": 5.2,\n" +
-                "\n" +
-                "  \"LCC_GradCoilTemp\": 25.2,\n" +
-                "\n" +
-                "  \"LCC_SecondaryLoopFillingPress\": -1,\n" +
-                "\n" +
-                "  \"LCC_SecondaryLoopTemp\": -1,\n" +
-                "\n" +
-                "  \"LCC_T1Temp\": 12.2,\n" +
-                "\n" +
-                "  \"LCC_T2Temp\": 12.6,\n" +
-                "\n" +
-                "  \"LCC_GradAmpFillingPress\": -1,\n" +
-                "\n" +
-                "  \"LCC_GradAmpTemp\": 25.1,\n" +
-                "\n" +
-                "  \"LCC_GradCoilFillingPress\": -1,\n" +
-                "\n" +
-                "  \"LCC_HeliumCompressorFlow\": -1,\n" +
-                "\n" +
-                "  \"LCC_PrimaryFlow\": -1,\n" +
-                "\n" +
-                "  \"LCC_HCTemp\": -1,\n" +
-                "\n" +
-                "  \"LCC_HeliumCompressorTemp\": -1,\n" +
-                "\n" +
-                "  \"lcc_Type\": \"LCC\",\n" +
-                "\n" +
-                "  \"EventDate\": \"2022-06-28T15:06:54Z\",\n" +
-                "\n" +
-                "  \"dtwin_instance_id\": \"18542_LCC_twin\",\n" +
-                "\n" +
-                "  \"InstanceType\": \"LCC\",\n" +
-                "\n" +
-                "  \"SRN\": \"18542\"\n" +
-                "\n" +
-                "}");
-
-
-
-
-
-        evParser.parseEvent("{\n" +
-                "  \"dtwin_id\": \"dtmi:com:philips:pd:mr:magnet;2\",\n" +
-                "  \"magnet_pressure\": 75.0,\n" +
-                "  \"magnet_bathheaterlow\": -1.0,\n" +
-                "  \"magnet_helium_level_value\": 55.8,\n" +
-                "  \"magnet_quench\": 0.0,\n" +
+                "   \"dtwin_id\": \"dtmi:com:philips:pd:mr:magnet;3\",\n" +
+                "   \"magnet_pressure\": 66.0,\n" +
+                "  \"magnet_bathheaterlow\": 0.0,\n" +
+                "   \"magnet_helium_level_value\": 81.4,\n" +
+                "   \"magnet_quench\": 0.0,\n" +
                 "  \"Magnet_Type\": \"F2000\",\n" +
-                "  \"Main_System_Type\": \"T15\",\n" +
-                "  \"Magnet_Serial_Number\": \"TE_150_2752\",\n" +
-                "  \"Magnet_MMU_Type\": \"MEU\",\n" +
-                "  \"EventDate\": \"2022-05-01T03:05:31Z\",\n" +
-                "  \"dtwin_instance_id\": \"8190_Magnet_twin\",\n" +
-                "  \"InstanceType\": \"Magnet\",\n" +
-                "  \"SRN\": \"8190\"\n" +
-                "} ");
+                "   \"Main_System_Type\": \"T15\",\n" +
+                "   \"Magnet_Serial_Number\": \"R3011\",\n" +
+                "   \"Magnet_MMU_Type\": \"MEU\",\n" +
+                "   \"Equipment_Number\": \"87724958\",\n" +
+                "   \"Software_Version\": \"5.7.1.3\",\n" +
+                "   \"System_Type\": \"Achieva dStream\",\n" +
+                "   \"EventDate\": \"2022-04-30T17:01:05Z\",\n" +
+                "   \"dtwin_instance_id\": \"5425_Magnet_twin\",\n" +
+                "   \"InstanceType\": \"Magnet\",\n" +
+                "   \"SRN\": \"5425\"\n" +
+                " }");
+
+
+
+
     }
 
     @PostConstruct
@@ -179,7 +134,7 @@ public class Receiver {
         // initialize your monitor here, instance of someService is already injected by this time.
 
         System.out.println("Inside init");
-       // test();
-        consumeEventsByConsumerGroup();
+     //   test();
+      //  consumeEventsByConsumerGroup();
     }
 }

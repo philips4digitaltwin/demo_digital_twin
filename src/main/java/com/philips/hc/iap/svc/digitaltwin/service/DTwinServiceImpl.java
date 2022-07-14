@@ -18,17 +18,7 @@ public class DTwinServiceImpl implements DTwinService{
     @Autowired
     private DtwinMagnetRepository dtwinMagnetRepository;
 
-    @Autowired
-    private DtwinDetectorWIFIRepository dtwinDetectorWIFIRepository;
 
-    @Autowired
-    private DTwinDetectorRepository dTwinDetectorRepository;
-
-    @Autowired
-    private DTwinDetectorCalibrationRepository dTwinDetectorCalibrationRepository;
-
-    @Autowired
-    private DTwinBatteryRepository dTwinBatteryRepository;
 
 
 
@@ -37,31 +27,12 @@ public class DTwinServiceImpl implements DTwinService{
         return null;
     }
 
-    @Override
-    public DTwinBattery saveDTwinBattery(DTwinBattery dTwinBattery) {
-        DTwin twin = dTwinRepository.getDTwinByInstanceType(DTwinConstant.DXR_INSTANCE_BATTERY);
-        dTwinBattery.setdTwin(twin);
-        dTwinBatteryRepository.save(dTwinBattery);
-        return dTwinBattery;
-    }
 
-    @Override
-    public DTwinDetector saveDTwinDetector(DTwinDetector dTwinDetector) {
 
-        DTwin twin = dTwinRepository.getDTwinByInstanceType(DTwinConstant.DXR_INSTANCE_DETECTOR);
-        dTwinDetector.setdTwin(twin);
-        dTwinDetectorRepository.save(dTwinDetector);
-        return dTwinDetector;
 
-    }
 
-    @Override
-    public DtwinDetectorWIFI saveDtwinDetectorWIFI(DtwinDetectorWIFI dtwinDetectorWIFI) {
-        DTwin twin = dTwinRepository.getDTwinByInstanceType(DTwinConstant.DXR_INSTANCE_DETECTOR_WIFI);
-        dtwinDetectorWIFI.setdTwin(twin);
-        dtwinDetectorWIFIRepository.save(dtwinDetectorWIFI);
-        return dtwinDetectorWIFI;
-    }
+
+
 
 
 
@@ -74,13 +45,7 @@ public class DTwinServiceImpl implements DTwinService{
         return dtwinLCC;
     }
 
-    @Override
-    public DTwinDetectorCalibration saveDTwinDetectorCalibration(DTwinDetectorCalibration dTwinDetectorCalibration) {
-        DTwin twin = dTwinRepository.getDTwinByInstanceType(DTwinConstant.DXR_INSTANCE_DETECTOR_CALIBRATION);
-        dTwinDetectorCalibration.setdTwin(twin);
-        dTwinDetectorCalibrationRepository.save(dTwinDetectorCalibration);
-        return dTwinDetectorCalibration;
-    }
+
 
     @Override
     public DtwinMagnet saveDtwinMagnet(DtwinMagnet dtwinMagnet) {
