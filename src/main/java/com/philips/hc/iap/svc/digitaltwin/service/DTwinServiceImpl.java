@@ -49,7 +49,7 @@ public class DTwinServiceImpl implements DTwinService{
 
     @Override
     public DtwinMagnet saveDtwinMagnet(DtwinMagnet dtwinMagnet) {
-        DTwin twin = dTwinRepository.getDTwinByInstanceType(DTwinConstant.MR_INSTANCE_LCC);
+        DTwin twin = dTwinRepository.getDTwinByInstanceType(DTwinConstant.MR_INSTANCE_MAGNET);
         dtwinMagnet.setdTwin(twin);
         dtwinMagnetRepository.save(dtwinMagnet);
         return dtwinMagnet;

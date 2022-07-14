@@ -135,6 +135,6 @@ public class Receiver {
 
         System.out.println("Inside init");
      //   test();
-      //  consumeEventsByConsumerGroup();
+        consumeEventsByConsumerGroup();
     }
 }
